@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env
+.env.*.local
+coverage/
+apps/api/tmp/
+apps/api/.air.toml

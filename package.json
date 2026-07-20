@@ -1,0 +1,15 @@
+{
+  "name": "car-rental-platform",
+  "private": true,
+  "packageManager": "pnpm@11.15.1",
+  "scripts": {
+    "dev:customer": "pnpm --filter @car-rental/customer dev",
+    "dev:admin": "pnpm --filter @car-rental/admin dev",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "prettier": "latest"
+  }
+}
