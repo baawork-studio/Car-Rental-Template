@@ -4,7 +4,6 @@ COPY go.mod go.sum* ./
 RUN go mod download
 COPY . .
 RUN CGO_ENABLED=0 go build -o /server ./cmd/server
-RUN CGO_ENABLED=0 go build -o /richmenu ./cmd/richmenu
 
 FROM alpine:3.23
 RUN apk add --no-cache ca-certificates wget

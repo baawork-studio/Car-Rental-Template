@@ -11,7 +11,10 @@ import (
 	"path/filepath"
 )
 
-const lineAPI = "https://api.line.me/v2/bot"
+const (
+	lineAPI     = "https://api.line.me/v2/bot"
+	lineDataAPI = "https://api-data.line.me/v2/bot"
+)
 
 type RichMenuService struct {
 	token  string
@@ -85,7 +88,7 @@ func (s *RichMenuService) uploadImage(menuID, path string) error {
 		return err
 	}
 	defer file.Close()
-	response, err := s.request(http.MethodPost, "/richmenu/"+menuID+"/content", mime.TypeByExtension(filepath.Ext(path)), file)
+	response, err := s.dataRequest(http.MethodPost, "/richmenu/"+menuID+"/content", mime.TypeByExtension(filepath.Ext(path)), file)
 	if err != nil {
 		return err
 	}
@@ -96,7 +99,13 @@ func (s *RichMenuService) uploadImage(menuID, path string) error {
 	return nil
 }
 func (s *RichMenuService) request(method, path, contentType string, body io.Reader) (*http.Response, error) {
-	request, err := http.NewRequest(method, lineAPI+path, body)
+	return s.requestTo(lineAPI, method, path, contentType, body)
+}
+func (s *RichMenuService) dataRequest(method, path, contentType string, body io.Reader) (*http.Response, error) {
+	return s.requestTo(lineDataAPI, method, path, contentType, body)
+}
+func (s *RichMenuService) requestTo(baseURL, method, path, contentType string, body io.Reader) (*http.Response, error) {
+	request, err := http.NewRequest(method, baseURL+path, body)
 	if err != nil {
 		return nil, err
 	}
