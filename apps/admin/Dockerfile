@@ -8,4 +8,5 @@ RUN pnpm build
 
 FROM nginx:1.29-alpine
 COPY --from=build /app/dist /usr/share/nginx/html
-EXPOSE 80
+COPY nginx.conf.template /etc/nginx/templates/default.conf.template
+EXPOSE 8080
