@@ -3,12 +3,6 @@ name: Admin
 on:
   push:
     branches: [main]
-    paths:
-      - apps/admin/**
-      - package.json
-      - pnpm-lock.yaml
-      - pnpm-workspace.yaml
-      - .github/workflows/admin.yml
   workflow_dispatch:
 
 permissions:

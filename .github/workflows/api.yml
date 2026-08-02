@@ -3,9 +3,6 @@ name: API
 on:
   push:
     branches: [main]
-    paths:
-      - apps/api/**
-      - .github/workflows/api.yml
   workflow_dispatch:
 
 permissions:
