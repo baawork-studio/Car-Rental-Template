@@ -7,15 +7,11 @@ on:
 
 permissions:
   contents: read
-  deployments: write
 
 jobs:
   deploy:
     name: Verify API
     runs-on: ubuntu-latest
-    environment:
-      name: api
-      url: https://car-rental-template-api.up.railway.app
     defaults:
       run:
         working-directory: apps/api
