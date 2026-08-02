@@ -5,3 +5,6 @@ dist/
 coverage/
 apps/api/tmp/
 apps/api/.air.toml
+apps/api/.go-build-cache/
+.pnpm-store/
+*.exe

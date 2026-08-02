@@ -1,0 +1,4 @@
+import { Button, Stack, Typography } from '@mui/material'
+import HourglassTopRoundedIcon from '@mui/icons-material/HourglassTopRounded'
+type Props = { verified: boolean; onClose: () => void }
+export function PaymentStatusPage({ verified, onClose }: Props) { return <Stack spacing={2} sx={{ pt: 8, alignItems: 'center', textAlign: 'center' }}><HourglassTopRoundedIcon color={verified ? 'success' : 'warning'} sx={{ fontSize: 72 }} /><Typography variant="h5" sx={{ fontWeight: 900 }}>{verified ? 'ตรวจสอบสลิปโอนเงินสำเร็จ' : 'กำลังรอตรวจสอบสลิปโอนเงิน'}</Typography><Typography color="text.secondary">{verified ? 'ระบบจะส่งข้อความยืนยันการชำระเงินผ่าน LINE OA ให้คุณ' : 'เจ้าหน้าที่จะตรวจสอบและแจ้งผลผ่าน LINE OA'}</Typography>{verified && <Button variant="contained" onClick={onClose}>กลับหน้าหลัก</Button>}</Stack> }

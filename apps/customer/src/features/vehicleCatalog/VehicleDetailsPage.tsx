@@ -1,0 +1,4 @@
+import { Button, CardMedia, Stack, Typography } from '@mui/material'
+import type { Car } from '../../types/rental'
+type Props = { car: Car; onRent: () => void; onBack: () => void }
+export function VehicleDetailsPage({ car, onRent, onBack }: Props) { return <Stack spacing={2}><Button onClick={onBack} sx={{ alignSelf: 'start' }}>← กลับ</Button><CardMedia component="img" image={car.image} height="240" alt={car.name} sx={{ borderRadius: 3 }} /><Typography variant="h5" sx={{ fontWeight: 900 }}>{car.name}</Typography><Typography color="text.secondary">รถเก๋งอัตโนมัติ ประกันภัยพื้นฐาน พร้อมให้บริการ {car.available} คัน</Typography><Typography color="primary" sx={{ fontWeight: 800 }}>฿{car.price.toLocaleString()} / วัน</Typography><Button variant="contained" size="large" onClick={onRent}>เช่ารถคันนี้</Button></Stack> }

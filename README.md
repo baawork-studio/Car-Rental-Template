@@ -17,3 +17,7 @@ docker compose up --build
 Customer: http://localhost:5173 · Admin: http://localhost:5174 · API health: http://localhost:8080/health
 
 Copy `.env.example` to `.env` before implementing LINE Messaging, Rich Menu, or LIFF features.
+
+## LINE Rich Menu
+
+The two supplied menu images are in `apps/api/assets/richmenu`. Set `LINE_CHANNEL_ACCESS_TOKEN` and `LIFF_ID`, then run `go run ./cmd/richmenu` from `apps/api` to create both menus and use the rental menu as the default.

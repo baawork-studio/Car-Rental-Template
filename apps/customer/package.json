@@ -13,6 +13,7 @@
     "@emotion/styled": "latest",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
+    "@line/liff": "latest",
     "axios": "latest",
     "react": "latest",
     "react-dom": "latest"
