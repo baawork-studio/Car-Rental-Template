@@ -1,12 +1,12 @@
 import liff from '@line/liff'
+import { runtimeConfig } from '../config/runtimeConfig'
 
 export type LineProfile = { userId: string; displayName: string }
 
-const productionLiffId = '2010767626-pvoF1EvY'
 let isLiffReady = false
 
 export async function initializeLiff(): Promise<LineProfile> {
-  const liffId = import.meta.env.VITE_LIFF_ID || productionLiffId
+  const liffId = runtimeConfig.liffId
   if (!liffId) throw new Error('ไม่พบ LIFF ID')
 
   await liff.init({ liffId })
